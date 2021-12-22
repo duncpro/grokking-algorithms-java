@@ -1,2 +1,2 @@
-rootProject.name = "grokking-algorithms-java"
+rootProject.name = "Grokking-Algorithms-Java"
 

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SelectionSortTest {
+class SortTest {
     List<Integer> unsortedNumbers = new ArrayList<>();
 
     @BeforeEach
@@ -25,13 +25,25 @@ class SelectionSortTest {
     }
 
     @Test
-    void sort() {
+    void selectionSort() {
         final var expected = unsortedNumbers.stream()
                 .sorted()
                 .collect(Collectors.toList());
 
         final var sorted =
             new SelectionSort<Integer>().sort(unsortedNumbers, Comparator.naturalOrder());
+
+        assertEquals(expected, sorted);
+    }
+
+    @Test
+    void quickSort() {
+        final var expected = unsortedNumbers.stream()
+                .sorted()
+                .collect(Collectors.toList());
+
+        final var sorted =
+                new QuickSort<Integer>().sort(unsortedNumbers, Comparator.naturalOrder());
 
         assertEquals(expected, sorted);
     }
